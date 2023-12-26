@@ -13,9 +13,7 @@
 
     HINT: Use setTimeout for the delay
 */
-let obj = {
-   fruit: "apple"
-}
+
 // 1.
 console.log("Program started");
 // 2.
@@ -33,10 +31,11 @@ myPromise
   .then(() => {
     // 5.
     console.log("Step 1 Complete");
-    return new Promise((resolve , reject)=>{
-      resolve(obj.fruit)
-    })
-  })
+    // 6.
+    return new Promise((resolve, reject) => {
+      resolve("Step 2 Complete");
+    });
+  }) // 7.
   .then((res) => {
     setTimeout(() => {
       console.log(res);
