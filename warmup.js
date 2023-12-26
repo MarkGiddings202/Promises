@@ -8,21 +8,22 @@
     HINT: Use setTimeout for the delay
 */
 
+//1
+console.log("Program started");
+//2
 const myPromise = new Promise((resolve, reject) => {
   setTimeout(() => {
-    resolve("Program Started");
+    resolve("Program complete");
   }, 3000);
-
   setTimeout(() => {
-    console.log("Program Complete");
-  }, 4000);
-  
+    reject("I failed :(");
+  }, 3000);
 });
-console.log(myPromise , "Program in progress...");
+//3 & 4
+console.log(myPromise, "Program in progress...");
+//5
+myPromise.then((res) => {
+  console.log(res);
+});
 
-
-myPromise.then((res)=>{
-    console.log(res)
-})
-
-
+console.log("We up.")

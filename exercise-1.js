@@ -10,3 +10,29 @@
 
     HINT: Use setTimeout for the delay
 */
+//1
+console.log("program started");
+//2
+const myPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    return resolve("Program complete");
+  }, 3000);
+
+  setTimeout(() => {
+    return reject();
+  }, 3000);
+});
+//3
+console.log(myPromise);
+//4
+console.log("Program in progress");
+//5
+
+
+myPromise // res takes the value inside of our pending promise above.
+  .then((res) => {
+    console.log(res);
+  })
+//   .catch((err) => {
+//     console.log("Program failure");
+//   });
