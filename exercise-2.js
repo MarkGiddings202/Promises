@@ -13,12 +13,15 @@
 
     HINT: Use setTimeout for the delay
 */
+let obj = {
+   fruit: "apple"
+}
 // 1.
 console.log("Program started");
 // 2.
 const myPromise = new Promise((resolve, reject) => {
   setTimeout(() => {
-    resolve("Step 1 Complete");
+    resolve();
   }, 2000);
 });
 // 3.
@@ -27,10 +30,12 @@ console.log(myPromise);
 console.log("Program in progress");
 
 myPromise
-  .then((res) => {
+  .then(() => {
     // 5.
-    console.log(res);
-    return "Step 2 Complete";
+    console.log("Step 1 Complete");
+    return new Promise((resolve , reject)=>{
+      resolve(obj.fruit)
+    })
   })
   .then((res) => {
     setTimeout(() => {
