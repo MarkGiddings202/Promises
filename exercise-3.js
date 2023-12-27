@@ -57,14 +57,17 @@ myPromise
     console.log(res);
   });
 // 8.
-myPromise.then((res) => {
-  console.log(res);
-  // 9.
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("Second Promise Complete");
-    }, 10000);
+myPromise
+  .then((res) => {
+    console.log(res);
+    // 9.
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve("Second Promise Complete");
+      }, 10000);
+    });
+  })
+  .then((res) => {
+    // 10.
+    console.log(res);
   });
-}).then((res)=>{
-   console.log(res)
-});

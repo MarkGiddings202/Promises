@@ -12,3 +12,22 @@
            "resolve 2 promises at the same time javascript"
 */
 
+
+let myPromise = new Promise((resolve, reject)=>{
+   setTimeout(()=>{
+      resolve(10)
+   }, 3000)
+})
+
+let myPromiseTwo = new Promise((resolve, reject) =>{
+   setTimeout(()=>{
+      resolve(20)
+   }, 5000)
+})
+
+Promise.all([myPromise , myPromiseTwo]).then((values) => {
+   sum = values.reduce((result , num)=>{
+      return result + num
+   }, 0)
+   console.log(sum);
+ });
